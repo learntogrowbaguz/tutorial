@@ -12,7 +12,7 @@ Djangoでは、ファイルやディレクトリの名前がとても重要で�
 
 > virtualenv（仮想環境）を実行しているでしょうか。 もしコンソールのプロンプトの前に `(myvenv)` という文字が表示されていない時は、virtualenv が実行されていないので、有効にする必要があります。 **Djangoのインストール** のチャプターの **仮想環境の操作** のパートで、仮想環境を実行する方法について説明しました。 Windowsでは、`myvenv\Scripts\activate`、MacOS や Linux では、 `source myvenv/bin/activate` というコマンドを入力すると有効にできます。
 
-<!--sec data-title="Create project: OS X or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
+<!--sec data-title="Create project: macOS or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
 
 MacOS や Linux の場合は、コンソールで以下のコマンドを実行します。**最後のピリオド(ドット) `.` を忘れないようにしてください！**
 
@@ -82,7 +82,7 @@ django-admin.py は、必要なディレクトリとファイルを作成する�
 TIME_ZONE = 'Asia/Tokyo'
 ```
 
-言語コードは、言語（例えば、英語の場合は`en`、ドイツ語の場合は`de`のように表します）と、国コード（例えば、ドイツの場合は`de`、スイスの場合は`ch`のように表します）からできています。 あなたの母国語が英語でない場合、これを追加すると、Djangoのデフォルトのボタンや通知が設定した言語に変更されます。 ですのでたとえば「Cancel」ボタンがここで定義した言語に翻訳されます。 [Djangoは多くの言語に対応しています。](https://docs.djangoproject.com/ja/2.2/ref/settings/#language-code)
+言語コードは、言語（例えば、英語の場合は`en`、ドイツ語の場合は`de`のように表します）と、国コード（例えば、ドイツの場合は`de`、スイスの場合は`ch`のように表します）からできています。 あなたの母国語が英語でない場合、これを追加すると、Djangoのデフォルトのボタンや通知が設定した言語に変更されます。 ですのでたとえば「Cancel」ボタンがここで定義した言語に翻訳されます。 [Djangoは多くの言語に対応しています。](https://docs.djangoproject.com/ja/5.1/ref/settings/#language-code)
 
 別の言語を使用する場合は、次の行を変更して言語コードを変更します。
 
@@ -98,7 +98,7 @@ LANGUAGE_CODE = 'ja'
 
 ```python
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'static'
 ```
 
 `DEBUG` が `True` に設定されていて、`ALLOWED_HOSTS` が空のリストの時は、自動的に `['localhost', '127.0.0.1', '[::1]']` という3つのホストに対してチェックが行われます。 このままの設定では、これから私たちがデプロイして使う PythonAnywhere のホストネームが含まれていません。ですから、次のように設定を変更します。
@@ -125,7 +125,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 ```

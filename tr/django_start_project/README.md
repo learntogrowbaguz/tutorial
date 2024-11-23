@@ -12,7 +12,7 @@ Bazı dosya ve dizinlerin isimleri Django için çok önemlidir. Oluşturmak üz
 
 > virtualenv içindeki her şeyi çalıştırmayı unutmayın. Eğer konsolunuzda `(myenv)` öneki görmüyorsanız, virtualenv'inizi aktive etmeniz gerekir. **Django yükleme** bölümünün **Virtualenv ile çalışma** kısmında nasıl yapılacağını açıkladık. Windows'ta `myvenv\Scripts\activate` ya da, Mac OS ya da Linux'ta `source myvenv/bin/activate` yazmak bunu sizin için yapacaktır.
 
-<!--sec data-title="Create project: OS X or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
+<!--sec data-title="Create project: macOS or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
 
 MacOS veya Linux konsolunuzda aşağıdaki komutu çalıştırmalısınız; **sonuna nokta `(.)` koymayı unutmayın**
 
@@ -96,7 +96,7 @@ Ayrıca statik dosyalar için bir yol eklememiz gerekmektedir. (Eğitici ders i�
 
 ```python
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = BASE_DIR / 'static'
 ```
 
 `DEBUG(Hata Ayıklama)` `True(Doğru)` ve `ALLOWED_HOSTS` boş olduğu zaman ana bilgisayar `['localhost', '127.0.0.1', '[::1]']`'a karşı doğrulanır. Bu, uygulamamızı dağıttıktan sonra, PythonAnywhere'deki anamakine adıyla eşleşmeyecek bu yüzden aşağıdaki ayarları değiştireceğiz:
@@ -123,7 +123,7 @@ Sqlite varsayılan olduğu için zaten `mysite/settings.py` dosyamızda kurulu:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 ```

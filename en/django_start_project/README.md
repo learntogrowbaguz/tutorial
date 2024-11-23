@@ -14,11 +14,11 @@ The first step is to start a new Django project. Basically, this means that we'l
 The names of some files and directories are very important for Django. You should not rename the files that we are about to create. Moving them to a different place is also not a good idea. Django needs to maintain a certain structure to be able to find important things.
 
 > Remember to run everything in the virtualenv. If you don't see a prefix `(myvenv)` in your console, you need to activate your virtualenv. We explained how to do that in the __Django installation__ chapter in the __Working with virtualenv__ part. Typing `myvenv\Scripts\activate` on Windows or
-`source myvenv/bin/activate` on Mac OS X or Linux will do this for you.
+`source myvenv/bin/activate` on macOS or Linux will do this for you.
 
-<!--sec data-title="Create project: OS X or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
+<!--sec data-title="Create project: macOS or Linux" data-id="django_start_project_OSX_Linux" data-collapse=true ces-->
 
-In your Mac OS X or Linux console, you should run the following command. **Don't forget to add the period (or dot) `.` at the end!**
+In your macOS or Linux console, you should run the following command. **Don't forget to add the period (or dot) `.` at the end!**
 
 {% filename %}command-line{% endfilename %}
 ```
@@ -64,7 +64,7 @@ djangogirls
 ```
 > **Note**: in your directory structure, you will also see your `myvenv` directory that we created before.
 
-`manage.py` is a script that helps with management of the site. With it we will be able (amongst other things) to start a web server on our computer without installing anything else.
+`manage.py` is a script that helps with management of the site. With it we will be able (among other things) to start a web server on our computer without installing anything else.
 
 The `settings.py` file contains the configuration of your website.
 
@@ -77,7 +77,7 @@ Let's ignore the other files for now as we won't change them. The only thing to 
 
 Let's make some changes in `mysite/settings.py`. Open the file using the code editor you installed earlier.
 
-**Note**: Keep in mind that `settings.py` is a regular file, like any other. You can open it from inside the code editor, using the "file -> open" menu actions. This should get you the usual window in which you can navigate to your `settings.py` file and select it. Alternatively, you can open the file by navigating to the djangogirls folder on your desktop and right-clicking on it. Then, select your code editor from the list. Selecting the editor is important as you might have other programs installed that can open the file but will not let you edit it.
+**Note**: Keep in mind that `settings.py` is a regular file, like any other. You can open it from inside the code editor, using the "File -> Open" menu action. This should get you the usual window in which you can navigate to your `settings.py` file and select it. Alternatively, you can open the file by navigating to the `djangogirls/` folder on your desktop and right-clicking on it. Then, select your code editor from the list. Selecting the editor is important as you might have other programs installed that can open the file but will not let you edit it.
 
 It would be nice to have the correct time on our website. Go to [Wikipedia's list of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) and copy your relevant time zone (TZ) (e.g. `Europe/Berlin`).
 
@@ -88,7 +88,7 @@ In `settings.py`, find the line that contains `TIME_ZONE` and modify it to choos
 TIME_ZONE = 'Europe/Berlin'
 ```
 
-A language code consist of the language, e.g. `en` for English or `de` for German, and the country code, e.g. `de` for Germany or `ch` for Switzerland. If English is not your native language, you can add this to change the default buttons and notifications from Django to be in your language. So you would have "Cancel" button translated into the language you defined here. [Django comes with a lot of prepared translations](https://docs.djangoproject.com/en/3.2/ref/settings/#language-code).
+A language code consist of the language, e.g. `en` for English or `de` for German, and the country code, e.g. `de` for Germany or `ch` for Switzerland. If English is not your native language, you can add this to change the default buttons and notifications from Django to be in your language. So you would have "Cancel" button translated into the language you defined here. [Django comes with a lot of prepared translations](https://docs.djangoproject.com/en/5.1/ref/settings/#language-code).
 
 If you want a different language, change the language code by changing the following line:
 
@@ -102,7 +102,7 @@ We'll also need to add a path for static files. (We'll find out all about static
 
 {% filename %}mysite/settings.py{% endfilename %}
 ```python
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static'
 ```
 
@@ -111,7 +111,7 @@ match our hostname on PythonAnywhere once we deploy our application so we will c
 
 {% filename %}mysite/settings.py{% endfilename %}
 ```python
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.pythonanywhere.com']
 ```
 
 > **Note**: If you're using a Chromebook, add this line at the bottom of your settings.py file:
@@ -251,6 +251,8 @@ or on Glitch:
 ```
 https://name-of-your-glitch-project.glitch.me
 ```
+
+You can open this in another browser window and you should see the Django install worked page.
 
 Congratulations! You've just created your first website and run it using a web server! Isn't that awesome?
 
